@@ -1014,11 +1014,18 @@ pushgateway:
 ##
 alertmanagerFiles:
   alertmanager.yml:
-    global: {}
+    global:
+      smtp_form: yourmail@gmail.com
+      smtp_smarthost: smtp.gmail.com:587
+      smtp_auth_username: yourmail@gmail.com
+      smtp_auth_password: password of your account
+      smtp_require_tls: true
       # slack_api_url: ''
 
     receivers:
       - name: default-receiver
+        email_configs:
+        - to: 'recevermail@gmail.com'
         # slack_configs:
         #  - channel: '@you'
         #    send_resolved: true
